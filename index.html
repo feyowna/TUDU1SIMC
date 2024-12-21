@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"> 
+  <title>TUDU</title>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="container">
+    
+      <!--Left Column-->
+      <main class="left-column">
+        <h1>tudu.</h1>
+        <h3 id="task-counter" class="category-box">You have <span id="todoCount">0</span> pending tasks</h3>
+        
+        <div>
+          <ul class="scroll">
+            <li id="to-do-list"></li>
+          </ul>
+        </div>
+
+      </main>
+
+      <!--Right Column-->
+      <div class="right-column">
+
+        <!--Save and Cancel Task Button-->        
+        <div class="edit-button">
+          <div class="button" type="image" id="delete">
+            <i class='bx bx-x bx-md' title="Cancel"></i>
+          </div>
+          <div class="button" type="image" id="enter" style="margin-top: 1px;">
+            <i class='bx bx-save bx-sm' title="Save"></i>
+          </div>
+        </div>
+        <h2>Add new task</h2>
+
+        <!--Discard Changed Alert-->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+           <p>Discard unsaved changes?</p>
+            <button id="discard">Discard</button>
+            <button class="cancel" id="cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="line"></div>
+        
+        <!--Enter Task Details-->
+        <div class="to-do-input">
+          <input type="text" id="item" placeholder="Enter task title">
+          <input type="date" id="deadline" placeholder="Enter deadline" style="cursor: pointer">
+          <div class="select-container">
+            <select class="select-category" placeholder="Importance Level">
+              <option>High Importance</option>
+              <option>Medium Importance</option>
+              <option>Low Importance</option>
+            </select>
+          </div>
+          <div>
+            <textarea class="description-input" type="text" placeholder="Description"></textarea>
+          </div>
+        </div>
+      </div>
+  
+      <!--Add Task Button-->
+      <div class="plus-task" onclick="openAddTask()">
+        <i class='bx bx-plus-medical bx-xs'></i>
+        <p>Add Task</p>
+      </div>
+    </div>
+  </div>
+  
+<!--Context Menu-->
+  <div>
+    <ul class="context" id="contextmenu">
+      <li class="context-link" id="action1">
+        <span class="context-label">Edit Task</span>
+      </li>
+      <li class="context-link" id="action2">
+        <span class="context-label">View Description</span>
+      </li>
+      <li class="context-link" id="action3">
+        <span class="context-label">Delete Task</span>
+      </li>
+    </ul>
+  </div>
+
+    <!--Description Display Function-->
+    <div class="description-display modal" id="descriptionDisplay">
+      <div class="edit-button" onclick="closeDescription()">
+        <div class="button" type="image" id="delete">
+         <i class='bx bx-x bx-md' title="Cancel"></i>
+      </div>  
+      <h4>Description:</h4>
+      <p id="descriptionText">No description entered yet.</p>
+   </div> 
+
+  <script src="script.js"></script>
+</body>
+
+</html>
